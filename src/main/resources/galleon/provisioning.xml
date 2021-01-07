@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+<installation xmlns="urn:jboss:galleon:provisioning:3.0">
+    <feature-pack location="eap-s2i@maven(org.jboss.universe:s2i-universe)">
+        <default-configs inherit="false"/>
+        <packages inherit="false"/>
+    </feature-pack>
+    <feature-pack location="com.example:test-doc-content-trimming:1.0-SNAPSHOT">
+        <default-configs inherit="false"/>
+        <packages inherit="false"/>
+    </feature-pack>
+    <config model="standalone" name="standalone.xml">
+        <layers>
+            <include name="cloud-server"/>
+            <include name="my-custom-driver"/>
+            <include name="my-custom-datasource"/>
+        </layers>
+    </config>
+    <options>
+        <option name="optional-packages" value="passive+"/>
+    </options>
+</installation>
